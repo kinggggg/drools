@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <!--drools会根据packages属性指定的包从resources（也即classpath路径下查找相应的规则文件）
+    至于规则文件中package 关键字指定的包的值的作用是什么？-->
     <kbase name="rules" packages="com.rules">
         <ksession name="all-rules"/>
     </kbase>
