@@ -2,7 +2,7 @@ package com.learnDrools;
 
 import com.secbro.drools.model.Person
 
-rule "null-safe-test"
+rule "中文名称"
     when
         $p : Person(name == "zhangsan" || age == 18)
     then
