@@ -2,16 +2,191 @@ package com.learnDrools;
 
 import com.secbro.drools.model.Person
 
+
+rule "notInTest"
+
+//    enabled false
+
+    when
+        $p : Person(name not in ("lisi"))
+    then
+        System.out.println("not in测试");
+
+end
+
+rule "inTest"
+
+    enabled false
+
+    when
+        $p : Person(name in ("wangwu"))
+    then
+        System.out.println("in测试");
+
+end
+
+
+rule "neNullTest"
+
+    enabled false
+
+    when
+        $p : Person(name != null)
+    then
+        System.out.println("!= null测试");
+
+end
+
+rule "eNullTest"
+
+    enabled false
+
+    when
+        $p : Person(name == null)
+    then
+        System.out.println("== null测试");
+
+end
+
+rule "notSoundsLikeTest"
+
+    enabled false
+
+    when
+        $p : Person(name not soundslike "world")
+    then
+        System.out.println("not soundslike测试");
+
+end
+
+rule "soundsLikeTest"
+
+    enabled false
+
+    when
+        $p : Person(name soundslike "world")
+    then
+        System.out.println("soundslike测试");
+
+end
+
+rule "notMatchesTest"
+
+    enabled false
+
+    when
+        $p : Person(name not matches "张三")
+    then
+        System.out.println("not matches测试");
+
+end
+
+rule "matchesTest"
+
+    enabled false
+
+    when
+        $p : Person(name matches "张三")
+    then
+        System.out.println("matches测试");
+
+end
+
+rule "neTest"
+
+    enabled false
+
+    when
+        $p : Person((age != 18))
+    then
+        System.out.println("!=测试");
+
+end
+
+rule "eTest"
+
+    enabled false
+
+    when
+        $p : Person((age == 18))
+    then
+        System.out.println("==测试");
+
+end
+
+rule "leTest"
+
+    enabled false
+
+    when
+        $p : Person((age <= 18))
+    then
+        System.out.println("<=测试");
+
+end
+
+rule "lTest"
+
+    enabled false
+
+    when
+        $p : Person((age < 18))
+    then
+        System.out.println("<测试");
+
+end
+
+
+rule "geTest"
+
+    enabled false
+
+    when
+        $p : Person((age >= 18))
+    then
+        System.out.println(">=测试");
+
+end
+
+rule "gTest"
+
+    enabled false
+
+    when
+        $p : Person((age > 18))
+    then
+        System.out.println(">测试");
+
+end
+
+
+rule "中文名称2"
+
+    enabled false
+
+    when
+        $p : Person((age == 18))
+    then
+        System.out.println("中文名称2");
+
+end
+
 rule "中文名称"
+
+    enabled false
+
     when
         $p : Person(name == "zhangsan" || age == 18)
     then
-        System.out.println("null-safe-test");
+        System.out.println("中文名称");
         System.out.println($p.getName());
 
 end
 
 rule "equals-test"
+
+    enabled false
+
     when
         $p : Person(name == "zhangsan")
     then
@@ -23,7 +198,7 @@ end
 
 rule "binding-test"
 
-    lock-on-active
+    enabled false
 
     when
         $p : Person(age == 18) //对象绑定只能绑定一个
