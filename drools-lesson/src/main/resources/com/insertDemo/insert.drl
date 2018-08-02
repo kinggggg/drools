@@ -9,6 +9,8 @@ then
     System.out.println("insert-demo-rules-1规则被触发");
     Person p = new Person();
     p.setAge(25);
+
+    //执行了insert后，并不会再一次触发这个规则，这是和no-loop.drl中不同的
     insert(p);
 
 end
