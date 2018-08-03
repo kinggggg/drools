@@ -5,7 +5,7 @@ import com.secbro.drools.model.Person
 
 rule "notInTest"
 
-//    enabled false
+    enabled false
 
     when
         $p : Person(name not in ("lisi"))
@@ -14,12 +14,48 @@ rule "notInTest"
 
 end
 
-rule "inTest"
+//in中的值如果为布尔值的话
+rule "inTest04"
 
-    enabled false
+//    enabled false
 
     when
-        $p : Person(name in ("wangwu"))
+        $p : Person(marry in (true, false))
+    then
+        System.out.println("inTest04");
+
+end
+
+//in中的值如果为数字的话，不必用引号
+rule "inTest03"
+
+//    enabled false
+
+    when
+        $p : Person(age in (18, 30))
+    then
+        System.out.println("inTest03");
+
+end
+
+//in中的值如果为字符串的话，必须用引号引起来
+rule "inTest02"
+
+//    enabled false
+
+    when
+        $p : Person(name in ("wangwu", "zhangsan"))
+    then
+        System.out.println("inTest02");
+
+end
+
+rule "inTest"
+
+//    enabled false
+
+    when
+        $p : Person(name in ("wangwu", "zhangsan"))
     then
         System.out.println("in测试");
 
@@ -159,27 +195,127 @@ rule "gTest"
 
 end
 
+rule "小括号测试"
 
-rule "中文名称2"
-
-    enabled false
+//    enabled false
 
     when
-        $p : Person((age == 18))
+        $p : Person(((age  ==  18))  &&  ((name  matches  "zhangsan")))
     then
-        System.out.println("中文名称2");
+        System.out.println("小括号测试");
 
 end
 
-rule "中文名称"
+//1.
+rule "项目测试"
+
+//    enabled false
+
+    when
+        $p : Person((((name  in  ("hello","zhangsan")))  &&  (age  ==  18))  &&  ((name  matches  "zhangsan")))
+    then
+        System.out.println("项目测试");
+
+end
+
+//1.
+rule "测试Date"
+
+//    enabled false
+
+    when
+        $p : Person((bornDate > "27-Oct-2009"))
+    then
+        System.out.println($p.getBornDate());
+        System.out.println("测试Date");
+
+end
+
+//1.写成"true"会自动进行转换
+//2.写成1报错
+//3.建议不加双引号直接写true或者false
+rule "测试boolean"
+
+//    enabled false
+
+    when
+        $p : Person((marry == true))
+    then
+        System.out.println("测试boolean");
+
+end
+
+//1.写成"1" 会自动进行类型转换
+//2.建议不加引号直接写
+rule "测试byte"
+
+//    enabled false
+
+    when
+        $p : Person((gender == 1))
+    then
+        System.out.println("测试byte");
+
+end
+
+//1.char的常量值写成 双引号或者单引号均可以
+//2.单引号IDE报错，但是执行不受影响
+//3.双引号不报错
+rule "测试char"
+
+//    enabled false
+
+    when
+        $p : Person((adult == "1"))
+    then
+        System.out.println("测试char");
+
+end
+
+rule "test04"
+
+//    enabled false
+
+    when
+        $p : Person(age matches 30)
+    then
+
+        System.out.println("test04");
+
+end
+
+rule "test03"
+
+//    enabled false
+
+    when
+        $p : Person((((age  <  20))  ||  (age  >  18))  &&  ((age  ==  30)))
+    then
+
+        System.out.println("test03");
+
+end
+
+rule "test02"
 
     enabled false
 
     when
-        $p : Person(name == "zhangsan" || age == 18)
+        $p : Person((name == "zhangsan"))
     then
-        System.out.println("中文名称");
-        System.out.println($p.getName());
+        System.out.println("test02");
+
+end
+
+rule "test01"
+
+//    enabled false
+
+    when
+        $p : Person( ((name == "zhangsan") && age == 18) || salary == 100)
+    then
+
+        System.out.println("test01");
 
 end
 

@@ -5,6 +5,11 @@ import com.secbro.drools.model.Person;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by zhuzs on 2017/8/9.
  */
@@ -279,11 +284,26 @@ public class LearnDroolsTest extends BaseTest{
     }
 
     @Test
+    public void testDateFormat() {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd-mmm-yyyy", Locale.US);
+
+        System.out.println(dateFormat.format(new Date()));
+    }
+
+    @Test
     public void equalsTest(){
         KieSession kieSession = getKieSessionBySessionName("learn-drools");
 
         Person p1 = new Person();
+        p1.setBornDate(new Date(System.currentTimeMillis()));
+        System.out.println(System.currentTimeMillis());
+
+        p1.setMarry(true);
+        p1.setAdult('0');
         p1.setName("zhangsan");
+        p1.setAge(18);
+        p1.setSalary(101);
 
         kieSession.insert(p1);
 
