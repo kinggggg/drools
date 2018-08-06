@@ -14,7 +14,8 @@ public class GlobalTest extends BaseTest{
         KieSession kieSession = this.getKieSessionBySessionName("global-rules");
 
         EmailService emailService = new EmailService();
-        kieSession.setGlobal("emailService",emailService);
+        //第一个参数的值与drl文件中global定义的参数的名称要一致
+        kieSession.setGlobal("emailService2",emailService);
 
         kieSession.fireAllRules();
         kieSession.dispose();

@@ -1,6 +1,6 @@
 package com.globalDemo
 
-global com.secbro.drools.chapter35.EmailService emailService
+global com.secbro.drools.chapter35.EmailService emailService2
 
 rule "global-test-ruel"
 
@@ -8,5 +8,5 @@ when
 
 then
     System.out.println("The rule of global-test-rule is fired!");
-    emailService.sendEmail();
+    emailService2.sendEmail();
  end
