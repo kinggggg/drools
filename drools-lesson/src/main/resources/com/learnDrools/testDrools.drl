@@ -1,7 +1,99 @@
 package com.learnDrools;
 
 import com.secbro.drools.model.Person
+import org.apache.commons.lang3.time.DateUtils;
 
+rule "datetimeTest"
+
+    enabled false
+
+    when
+//        $p : Person(bornDate <= "27-Oct-2009")
+//        $p : Person(bornDate < "27-Oct-2009 09:00:01:300")
+//        $p : Person("2018-08-13 09:00:00" < "2018-08-13 09:00:01")
+//        $p : Person(bornDate > "12-12-2008")
+//        $p : Person(bornDate > new Date())
+//        $p : Person(bornDate > 1534134091)
+//        $p : Person(bornDate > DateUtils.parseDate("2018-08-13 09:00:00", "yyyy-MM-dd HH:mm:ss"))
+
+    then
+        System.out.println("datetime测试");
+
+end
+
+rule "common"
+
+    enabled true
+
+    when
+        Person("Zhangsan" matches "[A-Z][a-z]+")
+    then
+        System.out.println("common测试");
+
+end
+
+rule "booleanTest2"
+
+    enabled false
+
+    when
+//        $p : Person(marry != 123)
+
+    then
+        System.out.println("booleanTest2测试");
+
+end
+
+rule "stringTest"
+
+    enabled false
+
+    when
+        $p : Person(name < "b")
+
+    then
+        System.out.println("string测试");
+
+end
+
+rule "booleanTest"
+
+    enabled false
+
+    when
+//        $p : Person(marry soundslike 100)
+//        $p : Person(marry not soundslike 100)
+    then
+        System.out.println("boolean测试");
+
+end
+
+rule "longTest"
+
+    enabled false
+
+    when
+//        $p : Person(salary soundslike 100)
+//        $p : Person(salary not soundslike 0.7)
+    then
+        System.out.println("long测试");
+
+end
+
+rule "doubleTest"
+
+    enabled false
+
+    when
+//        $p : Person(balance soundslike 0.7)
+//        $p : Person(balance not soundslike 0.7)
+        $p : Person(balance in (0.7, 20, 18))
+    then
+        System.out.println("double测试");
+
+end
+
+//=========================================================
 
 rule "notInTest"
 
@@ -97,10 +189,10 @@ end
 
 rule "soundsLikeTest"
 
-    enabled false
+    enabled true
 
     when
-        $p : Person(name soundslike "world")
+        $p : Person("2018-08-13 09:00:01" soundslike "2018-08-13 09:00:01")
     then
         System.out.println("soundslike测试");
 
@@ -239,11 +331,22 @@ rule "测试boolean"
 //    enabled false
 
     when
-        $p : Person((marry == true))
+        $p : Person((balance != null))
     then
         System.out.println("测试boolean");
 
 end
+
+//rule "test$"
+//
+////    enabled false
+//
+//    when
+//        $p : Person(test$ == null)
+//    then
+//        System.out.println("test$");
+//
+//end
 
 //1.写成"1" 会自动进行类型转换
 //2.建议不加引号直接写

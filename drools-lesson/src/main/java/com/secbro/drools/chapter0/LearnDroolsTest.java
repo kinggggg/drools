@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -14,6 +15,51 @@ import java.util.Locale;
  * Created by zhuzs on 2017/8/9.
  */
 public class LearnDroolsTest extends BaseTest{
+
+    /**
+     *  double 测试
+     */
+    @Test
+    public void doubleTest() throws ParseException {
+
+
+
+        String format = "yyyy-MM-dd HH:mm:ss";
+//        String format = "dd-MMM-yyyy";
+//        String format = "dd-MMM-yyyy HH:mm:ss:SSS";
+//        System.setProperty("drools.dateformat", format);
+        KieSession kieSession = getKieSessionBySessionName("learn-drools");
+
+
+        Person p1 = new Person();
+        p1.setBalance(0.7);
+        p1.setSalary(100);
+        p1.setMarry(true);
+        p1.setName("a");
+
+//        DateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
+        DateFormat dateFormat = new SimpleDateFormat(format);
+//        p1.setBornDate(dateFormat.parse("27-Oct-2009 09:00:01:300"));
+//        System.out.println(dateFormat.format(new Date()));
+//        p1.setBornDate(dateFormat.parse("2018-08-13 09:00:01"));
+//        p1.setBornDate(dateFormat.parse("12-12-2008"));
+//        p1.setBornDate(dateFormat.parse("27-Oct-2009"));
+
+        Date date = new Date();
+        p1.setBornDate(date);
+
+//        String dateString = "13-Aug-2018" ;
+//        System.out.println(dateFormat.format(date));
+//        p1.setBornDate(new Date( 115, 1, 20 ));
+
+        kieSession.insert(p1);
+
+        int count = kieSession.fireAllRules();
+        kieSession.dispose();
+
+        System.out.println("Fire " + count + " rules!");
+    }
+
 
     /**
      *  not in 测试

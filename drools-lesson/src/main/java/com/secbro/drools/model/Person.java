@@ -35,6 +35,16 @@ public class Person implements Serializable{
     //出生日期
     private Date bornDate;
 
+    private String test$;
+
+    public String getTest$() {
+        return test$;
+    }
+
+    public void setTest$(String test$) {
+        this.test$ = test$;
+    }
+
     public long getSalary() {
         return salary;
     }
