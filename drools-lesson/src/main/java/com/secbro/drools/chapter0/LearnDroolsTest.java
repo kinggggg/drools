@@ -195,7 +195,8 @@ public class LearnDroolsTest extends BaseTest{
         KieSession kieSession = getKieSessionBySessionName("learn-drools");
 
         Person p1 = new Person();
-        p1.setName("张三");
+        p1.setName("三三");
+        p1.setAge(30);
 
         kieSession.insert(p1);
 

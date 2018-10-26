@@ -211,12 +211,12 @@ end
 
 rule "matchesTest"
 
-    enabled false
+    enabled true
 
     when
-        $p : Person(name matches "张三")
+        $p : Person(name matches "^.*张三.*$") // *张三*
     then
-        System.out.println("matches测试");
+        System.out.println("111111111111111");
 
 end
 
@@ -383,7 +383,7 @@ rule "test04"
         $p : Person(age matches 30)
     then
 
-        System.out.println("test04");
+        System.out.println("test044444");
 
 end
 
