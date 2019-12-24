@@ -3,6 +3,29 @@ package com.learnDrools;
 import com.secbro.drools.model.Person
 import org.apache.commons.lang3.time.DateUtils;
 
+
+import java.util.Map;
+
+rule "02877caf-81c0-4929-9c4b-a31469b7feb3"
+agenda-group "499"
+lock-on-active true
+    when
+        $map : Map(((this["age"] == 18)))
+    then
+        $map.put("02877caf-81c0-4929-9c4b-a31469b7feb3","0");
+end
+
+rule "时间差测试"
+
+    enabled true
+
+    when
+
+    then
+        System.out.println("时间差测试");
+
+end
+
 rule "datetimeTest"
 
     enabled false
@@ -46,13 +69,13 @@ end
 
 rule "stringTest"
 
-    enabled false
+    enabled true
 
     when
-        $p : Person(name < "b")
+        $p : Person(name > "dfb")
 
     then
-        System.out.println("string测试");
+        System.out.println("string测试=====");
 
 end
 

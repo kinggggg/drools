@@ -17,6 +17,19 @@ import java.util.Locale;
 public class LearnDroolsTest extends BaseTest{
 
     /**
+     *  时间差 测试
+     */
+    @Test
+    public void datetimeNumTest() throws ParseException {
+        KieSession kieSession = getKieSessionBySessionName("learn-drools");
+
+        int count = kieSession.fireAllRules();
+        kieSession.dispose();
+
+        System.out.println("Fire " + count + " rules!");
+    }
+
+    /**
      *  double 测试
      */
     @Test
@@ -35,7 +48,7 @@ public class LearnDroolsTest extends BaseTest{
         p1.setBalance(0.7);
         p1.setSalary(100);
         p1.setMarry(true);
-        p1.setName("a");
+        p1.setName("dfba");
 
 //        DateFormat dateFormat = new SimpleDateFormat(format, Locale.US);
         DateFormat dateFormat = new SimpleDateFormat(format);
@@ -55,6 +68,38 @@ public class LearnDroolsTest extends BaseTest{
         kieSession.insert(p1);
 
         int count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
+        count = kieSession.fireAllRules();
         kieSession.dispose();
 
         System.out.println("Fire " + count + " rules!");
